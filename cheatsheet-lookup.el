@@ -42,6 +42,12 @@
   :group 'convenience
   :prefix "cheatsheet-lookup-")
 
+(defcustom cheatsheet-lookup-data-location
+  (expand-file-name "cheatsheet-lookup-data.el" ".")
+  "Location of lookup data."
+  :group 'cheatsheet-lookup
+  :type 'file)
+
 ;; ------------------------------------------------------------
 ;;* Load data
 (defvar cheatsheet-lookup-data nil)
@@ -76,7 +82,7 @@
 language/resource at 'http://cheat-sheets.org instead'."
   (interactive "P")
   (let* ((data (or cheatsheet-lookup-data
-                   (cheatsheet-lookup-load-alist "cheatsheet-lookup-data.el")))
+                   (cheatsheet-lookup-load-alist cheatsheet-lookup-data-location)))
          (lang (ido-completing-read "Language: " data))
          (subdat (assoc lang data)))
     (if (or arg current-prefix-arg)
