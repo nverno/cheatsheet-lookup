@@ -43,7 +43,8 @@
   :prefix "cheatsheet-lookup-")
 
 (defcustom cheatsheet-lookup-data-location
-  (expand-file-name "cheatsheet-lookup-data.el")
+  (expand-file-name "cheatsheet-lookup-data.el"
+                    (file-name-directory (locate-library "cheatsheet-lookup")))
   "Location of lookup data."
   :group 'cheatsheet-lookup
   :type 'file)
