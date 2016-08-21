@@ -1,4 +1,4 @@
-;;; cheatsheet-lookup --- Emacs API to lookup cheatsheets from cheat-sheets.org
+;;; cheatsheet-lookup --- Emacs API to lookup cheatsheets from cheat-sheets.org -*- lexical-binding: t -*-
 
 ;; Author: Noah Peart <noah.v.peart@gmail.com>
 ;; URL: https://github.com/nverno/cheatsheet-lookup
@@ -43,7 +43,7 @@
   :prefix "cheatsheet-lookup-")
 
 (defcustom cheatsheet-lookup-data-location
-  (expand-file-name "cheatsheet-lookup-data.el" ".")
+  (expand-file-name "cheatsheet-lookup-data.el")
   "Location of lookup data."
   :group 'cheatsheet-lookup
   :type 'file)
