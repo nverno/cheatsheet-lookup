@@ -1,11 +1,11 @@
 (require 'json)
 
+(setq winpy "C:/Program Files/Anaconda/python.exe")
+
 (defun scrape-data ()
   (let ((proc
          (start-process "cheatsheet" "*cheatsheet output*"
-                        (if (eq system-type 'windows-nt)
-                            nvp-python-program
-                          "python")
+                        (if (eq system-type 'windows-nt) winpy "python")
                         "cheatsheet-lookup.py")))
     (set-process-sentinel proc
                           #'(lambda (p s)
