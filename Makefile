@@ -9,7 +9,7 @@ endif
 elpa_dir ?= ~/.emacs.d/elpa
 auto ?= cheatsheet-lookup-autoloads.el
 
-el = $(filter-out $(auto) .dir-locals.el,$(wildcard *.el))
+el = $(filter-out $(auto) .dir-locals.el cheatsheet-lookup-data.el,$(wildcard *.el))
 elc = $(el:.el=.elc)
 
 batch_flags = -batch \
