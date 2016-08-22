@@ -42,10 +42,14 @@
   :group 'convenience
   :prefix "cheatsheet-lookup-")
 
-(defcustom cheatsheet-lookup-data-location
-  (expand-file-name "cheatsheet-lookup-data.el"
-                    (file-name-directory (locate-library "cheatsheet-lookup")))
-  "Location of lookup data."
+(defvar cheatsheet-lookup-data--location nil)
+(setq cheatsheet-lookup-data--location
+      (when load-file-name
+        (expand-file-name "cheatsheet-lookup-data.el"
+                          (file-name-directory load-file-name))))
+
+(defcustom cheatsheet-lookup-data-location cheatsheet-lookup-data--location
+  "Location of lookup data file."
   :group 'cheatsheet-lookup
   :type 'file)
 
