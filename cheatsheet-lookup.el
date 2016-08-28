@@ -97,7 +97,7 @@
       ;; Just go to section corresponding to chosen language
       (browse-url (concat "http://cheat-sheets.org/#" (cdr (assoc "id" subdat))))
     (let* ((sheets (cdr (or (assoc "sheets" subdat) subdat)))
-           (sheet (funcalll cheatsheet-lookup-completing-read
+           (sheet (funcall cheatsheet-lookup-completing-read
                             "Cheatsheet: " sheets))
            (uris (cdr (assoc "hrefs" (cdr (assoc sheet sheets))))))
       (if (= 1 (length uris))
