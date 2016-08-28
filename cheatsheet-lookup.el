@@ -27,8 +27,7 @@
 
 ;;; Description:
 
-;; Lookup cheatsheets at cheat-sheets.org from Emacs.  This interface uses
-;; ido-completion to prompt for input.
+;; Lookup cheatsheets online from emacs.
 
 ;;; Installation:
 
@@ -42,16 +41,15 @@
   :group 'convenience
   :prefix "cheatsheet-lookup-")
 
-(defvar cheatsheet-lookup-data--location nil)
-(setq cheatsheet-lookup-data--location
+(defvar cheatsheet-lookup-data-dir nil)
+(setq cheatsheet-lookup-data-dir
       (when load-file-name
-        (expand-file-name "cheatsheet-lookup-data.el"
-                          (file-name-directory load-file-name))))
+        (expand-file-name "data" (file-name-directory load-file-name))))
 
-(defcustom cheatsheet-lookup-data-location cheatsheet-lookup-data--location
-  "Location of lookup data file."
-  :group 'cheatsheet-lookup
-  :type 'file)
+;; (defcustom cheatsheet-lookup-data-dir cheatsheet-lookup-data--dir
+;;   "Location of lookup data file."
+;;   :group 'cheatsheet-lookup
+;;   :type 'file)
 
 ;; ------------------------------------------------------------
 ;;* Load data
@@ -72,13 +70,18 @@
                              (point-min) (point-max)))))
    '(:test equal :size 300)))
 
-(defun cheatsheet-lookup-load-alist (file)
-  (with-temp-buffer
-    (insert-file-contents file)
-    (let ((data (car
-                 (read-from-string
-                  (buffer-substring-no-properties (point-min) (point-max))))))
-      (setq cheatsheet-lookup-data data)))
+(defun cheatsheet-lookup-load-alist (files)
+  (dolist (file files)
+   (with-temp-buffer
+     (insert-file-contents file)
+     (let ((data (car
+                  (read-from-string
+                   (buffer-substring-no-properties (point-min) (point-max))))))
+       (if cheatsheet-lookup-data
+           (setcdr
+            (nthcdr (1- (length cheatsheet-lookup-data)) cheatsheet-lookup-data)
+            data)
+         (setq cheatsheet-lookup-data data)))))
   cheatsheet-lookup-data)
 
 ;;;###autoload
@@ -87,7 +90,8 @@
 language/resource at 'http://cheat-sheets.org instead'."
   (interactive "P")
   (let* ((data (or cheatsheet-lookup-data
-                   (cheatsheet-lookup-load-alist cheatsheet-lookup-data-location)))
+                   (cheatsheet-lookup-load-alist
+                    (directory-files cheatsheet-lookup-data-dir t "^[^.]"))))
          (lang (ido-completing-read "Language: " data))
          (subdat (assoc lang data)))
     (if (or arg current-prefix-arg)

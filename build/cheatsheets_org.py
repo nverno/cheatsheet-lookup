@@ -68,7 +68,14 @@ class IndexProcessor:
 # ip = IndexProcessor("http://www.cheat-sheets.org/")
 
 if __name__ == '__main__':
+    import optparse
+    parser = optparse.OptionParser(__doc__.strip())
+    parser.add_option("-o", "--output",
+                      help="Output file", default="cheat-sheet-org.json",
+                      dest="outfile")
+    (opts, args) = parser.parse_args()
+
     import json
     ip = IndexProcessor("http://www.cheat-sheets.org/")
-    with open("cheatsheet-lookup-data.json", "w") as f:
+    with open(opts.outfile, "w") as f:
         json.dump(ip.sheets, f)

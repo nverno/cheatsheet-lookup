@@ -1,0 +1,18 @@
+{
+  "cheat-sheets.org": {
+    "source": "http://cheat-sheets.org",
+    "indexer": {
+      "language": "python",
+      "program": "cheatsheets_org.py",
+      "options": []
+    }
+  },
+  "awesome-cheatsheet": {
+    "source": "https://github.com/detailyang/awesome-cheatsheet",
+    "indexer": {
+      "language": "ruby",
+      "program": "awesome.rb",
+      "options": []
+    }
+  }
+}

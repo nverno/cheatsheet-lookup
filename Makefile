@@ -1,10 +1,5 @@
 emacs ?= emacs
 wget ?= wget
-python ?= python
-
-ifeq ($(OS), Windows_NT)
-  python="C:/Program Files/Anaconda/python.exe"
-endif
 
 elpa_dir ?= ~/.emacs.d/elpa
 auto ?= cheatsheet-lookup-autoloads.el
@@ -27,7 +22,6 @@ auto_flags ?= \
                    (normal-top-level-add-subdirs-to-load-path)       \
                    (update-directory-autoloads wd))"
 
-json= build/cheatsheet-lookup.json
 
 .PHONY: $(auto) clean distclean
 all: compile $(auto)
@@ -46,14 +40,6 @@ README.md: el2markdown.el cheatsheet-lookup.el
 .INTERMEDIATE: el2markdown.el
 el2markdown.el:
 	$(wget) -q -O $@ "https://github.com/Lindydancer/el2markdown/raw/master/el2markdown.el"
-
-
-scrape: $(json)
-	cd build && $(emacs) -batch -l build.el -f build-el
-
-$(json):
-	cd build; \
-	$(python) cheatsheet-lookup.py
 
 TAGS: $(el)
 	$(RM) $@
