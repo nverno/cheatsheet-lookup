@@ -1,30 +1,46 @@
-require 'nokogiri'
 require 'open-uri'
 require 'openssl'
+require 'json'
 
 module AwesomeCheatsheets
 
   URL_BASE = "https://raw.githubusercontent.com/detailyang/awesome-cheatsheet/master/README.md"
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
-  sections = {}
+  @@sheets = {}
 
   def self.parse_md(uri)
-    current = nil
-    indent = 0
+    section = nil
+    indent = nil
     open(uri) { |f|
       f.each_line { |line|
-        /^(\s*)?-\s*\[(.*)\]\((.*)\)/.match(line.chomp)
-        current = $2[/[^-]+/] unless $1.nil? || $1.length > indent
-        indent = $1.length unless $1.nil? || $1.length > indent
-        p "Section #{current}: #{$2}, #{$3}" unless $2.nil?
+        line.chomp!
+        if /^(\s*)-\s*([[:alnum:] ]+$)/.match(line)
+          section = $2.downcase
+        elsif /^(\s*)-\s*\[(.*?)\]\((http.*)\)/.match(line)
+          if not $1.nil?
+            indent = $1.length if indent.nil?
+            name = $2
+            uri = $3
+            section = $2[/[^-_]+/].downcase unless $1.length > indent
+          end
+          if @@sheets[section].nil?
+            @@sheets[section] = {}
+            @@sheets[section][name] = uri
+          else
+            @@sheets[section][name] = uri
+          end
+          # p "Section #{section}: #{name}, #{uri}"
+        end
       }
     }
   end
 
-  def self.print_lines()
+  def self.output_json(file)
     parse_md URL_BASE
+    File.open(file, 'w') { |f| f.write(@@sheets.to_json) }
   end
+
 end
 
-AwesomeCheatsheets.print_lines
+AwesomeCheatsheets.output_json("awesome.json")

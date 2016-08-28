@@ -51,15 +51,20 @@
 ;;   :group 'cheatsheet-lookup
 ;;   :type 'file)
 
+(defcustom cheatsheet-lookup-completing-read 'ido-completing-read
+  "Completing read function."
+  :group 'cheatsheet-lookup
+  :type 'function)
+
 ;; ------------------------------------------------------------
 ;;* Load data
-(defvar cheatsheet-lookup-data nil)
+(defvar cheatsheet-lookup-cache nil)
 
 (defun cheatsheet-lookup-alist-to-hash (alist &optional options)
   (let ((ht (apply 'make-hash-table options)))
     (mapc
      #'(lambda (item) (puthash (car item) (cdr item) ht)) alist)
-    (setq cheatsheet-lookup-data ht)
+    (setq cheatsheet-lookup-cache ht)
     ht))
 
 (defun cheatsheet-lookup-load-hash (file)
@@ -70,40 +75,52 @@
                              (point-min) (point-max)))))
    '(:test equal :size 300)))
 
-(defun cheatsheet-lookup-load-alist (files)
-  (dolist (file files)
-   (with-temp-buffer
-     (insert-file-contents file)
-     (let ((data (car
-                  (read-from-string
-                   (buffer-substring-no-properties (point-min) (point-max))))))
-       (if cheatsheet-lookup-data
-           (setcdr
-            (nthcdr (1- (length cheatsheet-lookup-data)) cheatsheet-lookup-data)
-            data)
-         (setq cheatsheet-lookup-data data)))))
-  cheatsheet-lookup-data)
+(defun cheatsheet-lookup-load (&optional arg)
+  (when (or arg (not cheatsheet-lookup-cache))
+    (dolist (file (directory-files cheatsheet-lookup-data-dir t "^[^.]"))
+      (with-temp-buffer
+        (insert-file-contents file)
+        (let ((data (car
+                     (read-from-string
+                      (buffer-substring-no-properties (point-min) (point-max))))))
+          (if cheatsheet-lookup-cache
+              (setcdr
+               (nthcdr (1- (length cheatsheet-lookup-cache)) cheatsheet-lookup-cache)
+               data)
+            (setq cheatsheet-lookup-cache data))))))
+  cheatsheet-lookup-cache)
 
+;; cheat-sheets.org
+(defun cheatsheet-lookup-cheatsheets-org (subdat &optional arg)
+  "Dispatch to lookup at cheat-sheets.org"
+  (if (or arg current-prefix-arg)
+      ;; Just go to section corresponding to chosen language
+      (browse-url (concat "http://cheat-sheets.org/#" (cdr (assoc "id" subdat))))
+    (let* ((sheets (cdr (or (assoc "sheets" subdat) subdat)))
+           (sheet (funcalll cheatsheet-lookup-completing-read
+                            "Cheatsheet: " sheets))
+           (uris (cdr (assoc "hrefs" (cdr (assoc sheet sheets))))))
+      (if (= 1 (length uris))
+          (browse-url (aref uris 0))
+        (let ((uri (funcall cheatsheet-lookup-completing-read
+                            "Location: " (append uris nil))))
+          (browse-url uri))))))
+
+;;@@FIXME: need new data structure with action to take
 ;;;###autoload
 (defun cheatsheet-lookup (&optional arg)
   "Lookup a cheatsheet. With ARG or prefix, jump to the location of a selected
 language/resource at 'http://cheat-sheets.org instead'."
   (interactive "P")
-  (let* ((data (or cheatsheet-lookup-data
-                   (cheatsheet-lookup-load-alist
-                    (directory-files cheatsheet-lookup-data-dir t "^[^.]"))))
-         (lang (ido-completing-read "Language: " data))
-         (subdat (assoc lang data)))
-    (if (or arg current-prefix-arg)
-        ;; Just go to section corresponding to chosen language
-        (browse-url (concat "http://cheat-sheets.org/#" (cdr (assoc "id" subdat))))
-      (let* ((sheets (cdr (assoc "sheets" subdat)))
-             (sheet (ido-completing-read "Cheatsheet: " sheets))
-             (uris (cdr (assoc "hrefs" (cdr (assoc sheet sheets))))))
-        (if (= 1 (length uris))
-            (browse-url (aref uris 0))
-          (let ((uri (ido-completing-read "Location: " (append uris nil))))
-            (browse-url uri)))))))
+  (let* ((data (cheatsheet-lookup-load))
+         (subject (funcall cheatsheet-lookup-completing-read "Subject: " data))
+         (subdat (assoc subject data)))
+    (if (assoc "id" subdat)
+        (cheatsheet-lookup-cheatsheets-org subdat arg)
+      (if (= 1 (length (cdr subdat)))
+          (browse-url (cl-cdadr subdat))
+        (browse-url (funcall cheatsheet-lookup-completing-read
+                             "Cheatsheet: " (cdr subdat)))))))
 
 (provide 'cheatsheet-lookup)
 

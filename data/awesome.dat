@@ -1,0 +1,207 @@
+(("mobileapp"
+  ("MobileApp-Pentest-Cheatsheet" . "https://github.com/tanprathan/MobileApp-Pentest-Cheatsheet"))
+ ("easings.net"
+  ("easings.net" . "https://github.com/ai/easings.net"))
+ ("math"
+  ("math-as-code" . "https://github.com/Jam3/math-as-code"))
+ ("oauthsecurity"
+  ("oauthsecurity" . "https://github.com/homakov/oauthsecurity"))
+ ("penetration testing/security cheatsheets"
+  ("Penetration Testing/Security Cheatsheets" . "https://github.com/jshaw87/Cheatsheets"))
+ ("html5 security cheatsheet"
+  ("HTML5 Security Cheatsheet" . "https://github.com/cure53/H5SC"))
+ ("favicon"
+  ("favicon-cheat-sheet" . "https://github.com/audreyr/favicon-cheat-sheet"))
+ ("dtrace and stap"
+  ("dtrace and stap" . "http://myaut.github.io/dtrace-stap-book/dtrace-stap-cheatsheet.pdf"))
+ ("cheat sheet for gdal/ogr command"
+  ("Cheat sheet for GDAL/OGR command-line tools" . "https://github.com/dwtkns/gdal-cheat-sheet"))
+ ("sed"
+  ("sed-stream-editor-cheat-sheet" . "http://www.catonmat.net/blog/sed-stream-editor-cheat-sheet/"))
+ ("svn"
+  ("svn" . "http://www.abbeyworkshop.com/howto/misc/svn01/"))
+ ("matlab"
+  ("matlab-cheatsheet" . "http://web.mit.edu/18.06/www/Spring09/matlab-cheatsheet.pdf"))
+ ("tmux"
+  ("tmux" . "https://gist.github.com/andreyvit/2921703"))
+ ("terminal"
+  ("terminal-mac-cheatsheet" . "https://github.com/0nn0/terminal-mac-cheatsheet"))
+ ("rspec cheatsheet"
+  ("RSpec cheatsheet" . "https://github.com/eliotsykes/rspec-rails-examples"))
+ ("rspec"
+  ("rspec" . "https://gist.github.com/dnagir/663876"))
+ ("latexsheet"
+  ("latexsheet" . "http://www.stdout.org/~winston/latex/latexsheet.pdf"))
+ ("linux"
+  ("linux-command-line-cheat-sheet" . "http://www.addedbytes.com/cheat-sheets/linux"))
+ ("git cheat sheet and git flow"
+  ("Git Cheat Sheet and Git Flow" . "https://github.com/arslanbilal/git-cheat-sheet")
+  ("git_cheat_sheet" . "http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf")
+  ("git-cheat-sheet" . "https://github.com/arslanbilal/git-cheat-sheet")
+  ("github-cheat-sheet" . "https://github.com/tiimgreen/github-cheat-sheet")
+  ("git-style-guide" . "https://github.com/agis-/git-style-guide")
+  ("git-flow-cheatsheet" . "https://github.com/danielkummer/git-flow-cheatsheet"))
+ ("curl"
+  ("curl" . "https://github.com/bagder/curl-cheat-sheet"))
+ ("awk"
+  ("awk-nawk-and-gawk-cheat-sheet" . "http://www.catonmat.net/blog/awk-nawk-and-gawk-cheat-sheet/"))
+ ("intellj idea"
+  ("Windows/Linux" . "https://resources.jetbrains.com/assets/products/intellij-idea/IntelliJIDEA_ReferenceCard.pdf")
+  ("Mac OS X" . "https://resources.jetbrains.com/assets/products/intellij-idea/IntelliJIDEA_ReferenceCard_mac.pdf"))
+ ("gnu emacs"
+  ("GNU Emacs" . "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf")
+  ("Paredit Cheatsheet" . "https://www.emacswiki.org/emacs/PareditCheatsheet"))
+ ("a"
+  ("a_vi_vim_graphical_cheat_sheet_tutorial" . "http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html")
+  ("Vim Quick Reference Card" . "https://michaelgoerz.net/refcards/vimqrc.pdf"))
+ ("rest"
+  ("rest-foundations-restful" . "http://refcardz.dzone.com/refcardz/rest-foundations-restful"))
+ ("regular"
+  ("regular-expression-cheat-sheet" . "https://github.com/niklongstone/regular-expression-cheat-sheet"))
+ ("bigo"
+  ("bigo" . "http://bigocheatsheet.com/"))
+ ("acm"
+  ("acm-cheat-sheet" . "https://github.com/soulmachine/acm-cheat-sheet"))
+ ("postgresql"
+  ("postgresql" . "http://refcardz.dzone.com/refcardz/essential-postgresql"))
+ ("oracle"
+  ("Oracle_Programming" . "http://en.wikibooks.org/wiki/Oracle_Programming/SQL_Cheatsheet"))
+ ("sql"
+  ("sql-join-cheat-sheet" . "http://coolshell.cn/articles/3463.html"))
+ ("mysql"
+  ("mysql-cheat-sheet" . "http://www.addedbytes.com/cheat-sheets/mysql-cheat-sheet/"))
+ ("machine"
+  ("machine-learning-cheat-sheet" . "https://github.com/soulmachine/machine-learning-cheat-sheet"))
+ ("ror"
+  ("ror" . "http://www.addedbytes.com/cheat-sheets/ruby-on-rails-cheat-sheet/"))
+ ("web2py"
+  ("web2py" . "https://dl.dropboxusercontent.com/u/18065445/web2py/web2py_cheatsheet.pdf"))
+ ("laravel"
+  ("laravel-cheatsheet" . "https://github.com/jesseobrien/laravel-cheatsheet"))
+ ("flask"
+  ("flask" . "https://docs.google.com/file/d/1pnwfq8v5Ph4Xn8ttv9P_TLnrRbT9-S_v-KdZiEcx64vlGYkC0SoMfZOs0NYN/edit?usp=drive_web"))
+ ("djangocheatsheet"
+  ("DjangoCheatSheet" . "https://code.djangoproject.com/wiki/DjangoCheatSheet"))
+ ("head tags"
+  ("head tags" . "http://headtags.info/"))
+ ("webpack"
+  ("webpack" . "https://github.com/petehunt/webpack-howto"))
+ ("es6"
+  ("es6-cheatsheet" . "https://github.com/DrkSephy/es6-cheatsheet"))
+ ("underscore"
+  ("underscore-cheat-sheet" . "http://f.cl.ly/items/093o0l2Y3u130y0W0c0x/underscore-cheat-sheet.pdf"))
+ ("jquery"
+  ("jquery" . "http://oscarotero.com/jquery/")
+  ("jquery-cheatsheet" . "http://lab.abhinayrathore.com/jquery-cheatsheet/"))
+ ("nodejs"
+  ("nodejs" . "https://gist.github.com/LeCoupa/985b82968d8285987dc3"))
+ ("ember"
+  ("ember-js" . "http://www.cheatography.com/mwore/cheat-sheets/ember-js/"))
+ ("angularjs"
+  ("angularjs" . "http://www.cheatography.com/proloser/cheat-sheets/angularjs/"))
+ ("angular2"
+  ("angular2" . "https://angular.io/cheatsheet"))
+ ("redux"
+  ("redux" . "http://ricostacruz.com/cheatsheets/redux.html"))
+ ("react"
+  ("react-cheatsheet" . "http://reactcheatsheet.com/")
+  ("react-native-cheat-sheet" . "https://github.com/refinery29/react-native-cheat-sheet"))
+ ("backbone"
+  ("backbone-cheatsheet" . "http://www.igloolab.com/downloads/backbone-cheatsheet.pdf"))
+ ("smalltalk"
+  ("smalltalk-cheat-sheet" . "http://stephane.ducasse.free.fr/Teaching/0809Turino/st-cheatsheet.pdf"))
+ ("scheme"
+  ("scheme-cheat-sheet" . "http://courses.cs.washington.edu/courses/cse341/02wi/scheme/cheat-sheet.html"))
+ ("scala"
+  ("scala-cheat-sheet" . "http://docs.scala-lang.org/cheatsheets/"))
+ ("rust"
+  ("rust-cheat-sheet" . "http://static.rust-lang.org/doc/0.9/complement-cheatsheet.html"))
+ ("ruby"
+  ("ruby-cheat-sheet" . "https://github.com/brennovich/cheat-ruby-sheets")
+  ("A collection of Ruby Net::HTTP examples" . "https://github.com/augustl/net-http-cheat-sheet"))
+ ("rebol"
+  ("rebol-cheat-sheet" . "http://rebol.desajn.net/cheatsheet.html"))
+ ("ragel"
+  ("ragel-cheat-sheet" . "https://github.com/calio/ragel-cheat-sheet"))
+ ("racket"
+  ("racket-cheat-sheet" . "http://docs.racket-lang.org/guide/"))
+ ("r"
+  ("r-cheat-sheet" . "http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf"))
+ ("php"
+  ("php-cheat-sheet" . "https://www.addedbytes.com/cheat-sheets/php-cheat-sheet/")
+  ("PHP7-Reference" . "https://github.com/tpunt/PHP7-Reference"))
+ ("python"
+  ("python-cheat-sheet" . "http://www.addedbytes.com/cheat-sheets/python-cheat-sheet/")
+  ("Python Cheat Sheet" . "https://docs.google.com/file/d/0B9VT_L2CDnKvODYyNTc5NjktYmMyOC00NDFkLTliNTctMzQzMTAzYjUyYmYy/view?pli=1")
+  ("python feature" . "https://github.com/PythonCharmers/python-future"))
+ ("ocaml"
+  ("ocaml-cheat-sheet" . "http://ocaml.org/docs/cheat_sheets.html"))
+ ("objective"
+  ("objective-c-cheat-sheet" . "https://github.com/iwasrobbed/Objective-C-CheatSheet"))
+ ("typescript"
+  ("typescript-cheat-sheet" . "http://www.typescriptlang.org/Handbook"))
+ ("tcl"
+  ("tcl-cheat-sheet" . "http://wiki.tcl.tk/10710"))
+ ("swift cheatsheet"
+  ("swift cheatsheet" . "https://github.com/iwasrobbed/Swift-CheatSheet")
+  ("Playgrounds" . "https://github.com/uraimo/Awesome-Swift-Playgrounds")
+  ("swift design patterns" . "https://github.com/ochococo/Design-Patterns-In-Swift"))
+ ("shell"
+  ("shell-cheat-sheet" . "https://github.com/NisreenFarhoud/Bash-Cheatsheet")
+  ("bash cheat sheet" . "http://cli.learncodethehardway.org/bash_cheat_sheet.pdf")
+  ("bash redirections" . "https://github.com/pkrumins/bash-redirections-cheat-sheet")
+  ("fish" . "https://fishshell.com/docs/current/commands.html"))
+ ("javascript"
+  ("javascript-cheat-sheet" . "http://www.addedbytes.com/cheat-sheets/javascript-cheat-sheet/")
+  ("es6-cheatsheet" . "https://github.com/DrkSephy/es6-cheatsheet")
+  ("javascript-design-pattern" . "https://github.com/nnupoor/js_designpatterns"))
+ ("lua"
+  ("lua-cheat-sheet" . "http://lua-users.org/files/wiki_insecure/users/thomasl/luarefv51single.pdf"))
+ ("lisp"
+  ("lisp-cheat-sheet" . "http://faculty.smcm.edu/acjamieson/s13/LispCheatSheet.pdf"))
+ ("haskell"
+  ("haskell-cheat-sheet" . "http://blog.codeslower.com/static/CheatSheet.pdf"))
+ ("golang"
+  ("golang-cheat-sheet" . "https://github.com/a8m/go-lang-cheat-sheet")
+  ("Cheat sheet for some of the common concurrent flows in Go" . "https://github.com/rakyll/coop"))
+ ("f#"
+  ("f#-cheat-sheet" . "http://dungpa.github.io/fsharp-cheatsheet"))
+ ("emoji"
+  ("emoji-cheat-sheet" . "https://github.com/arvida/emoji-cheat-sheet.com"))
+ ("erlang"
+  ("erlang-cheat-sheet" . "http://www.cheat-sheets.org/saved-copy/Erlang.CheatSheet(1.0).pdf"))
+ ("elixir"
+  ("elixir-cheat-sheet" . "https://media.pragprog.com/titles/elixir/ElixirCheat.pdf"))
+ ("dotnet"
+  ("dotnet-cheat-sheet" . "http://refcardz.dzone.com/refcardz/coredotnet"))
+ ("delphi"
+  ("delphi-cheat-sheet" . "http://www.cheat-sheets.org/saved-copy/dquick.pdf"))
+ ("dart"
+  ("dart-cheat-sheet" . "http://dartlangfr.net/dart-cheat-sheet/"))
+ ("css3"
+  ("css3-cheat-sheet" . "http://media.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf"))
+ ("clojure"
+  ("clojure-cheat-sheet" . "http://clojure.org/cheatsheet"))
+ ("cpp"
+  ("cpp-cheat-sheet" . "http://isocpp.org/blog/2012/12/c11-a-cheat-sheet-alex-sinyakov"))
+ ("c#"
+  ("c#-cheat-sheet " . "http://www.digilife.be/quickreferences/QRC/Core%20CSharp%20and%20.NET%20Quick%20Reference.pdf"))
+ ("coffeescript"
+  ("coffeescript_cheatsheet" . "https://github.com/icebob/coffeescript_cheatsheet/"))
+ ("assembly"
+  ("assembly-cheat-sheet" . "http://www.jegerlehner.ch/intel/"))
+ ("saltstack"
+  ("saltstack" . "https://github.com/saltstack/salt/wiki/Cheat-Sheet"))
+ ("ios"
+  ("ios-cheat-sheet" . "https://github.com/Avocarrot/ios-cheatsheet")
+  ("iOS-App-Performance-Cheatsheet" . "https://github.com/danielamitay/iOS-App-Performance-Cheatsheet")
+  ("UI-Testing-Cheat-Sheet" . "https://github.com/joemasilotti/UI-Testing-Cheat-Sheet"))
+ ("docker"
+  ("docker" . "https://github.com/wsargent/docker-cheat-sheet")
+  ("dockerfiles" . "https://github.com/jfrazelle"))
+ ("dtrace"
+  ("dtrace_cheatsheet" . "https://blogs.oracle.com/brendan/entry/dtrace_cheatsheet"))
+ ("arduino"
+  ("Arduino_Cheat_Sheet.pdf" . "http://dlnmh9ip6v2uc.cloudfront.net/learn/materials/8/Arduino_Cheat_Sheet.pdf"))
+ ("android"
+  ("Android-Cheatsheet-For-Graphic-Designers" . "http://petrnohejl.github.io/Android-Cheatsheet-For-Graphic-Designers/")))
