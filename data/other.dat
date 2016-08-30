@@ -1,4 +1,5 @@
 (("dart"
   ("Core" . "http://dartlang.fr/dart-cheat-sheet/core.html")
   ("Html" . "http://dartlang.fr/dart-cheat-sheet/html.html")
-  ("Angular" . "http://dartlang.fr/dart-cheat-sheet/angular.html")))
+  ("Angular" . "http://dartlang.fr/dart-cheat-sheet/angular.html"))
+ ("nokogiri" . "https://github.com/sparklemotion/nokogiri/wiki/Cheat-sheet"))

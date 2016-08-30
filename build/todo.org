@@ -1,0 +1,2 @@
+* local storage: add / delete sheets
+* callbacks
