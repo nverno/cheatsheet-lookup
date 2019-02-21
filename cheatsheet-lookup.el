@@ -1,9 +1,9 @@
 ;;; cheatsheet-lookup --- Emacs API to lookup cheatsheets from cheat-sheets.org -*- lexical-binding: t -*-
 
+;; Last modified: <2019-02-20 20:34:50>
 ;; Author: Noah Peart <noah.v.peart@gmail.com>
 ;; URL: https://github.com/nverno/cheatsheet-lookup
 ;; Package-Requires: 
-;; Copyright (C) 2016, Noah Peart, all rights reserved.
 ;; Created: 20 August 2016
 
 ;; This file is not part of GNU Emacs.
@@ -29,11 +29,6 @@
 
 ;; Lookup cheatsheets online from emacs.
 
-;;; Installation:
-
-;; `cheatsheet-lookup' is the only interactive function.  So just autoload it or
-;; require this file.
-
 ;;; Code:
 
 (defgroup cheatsheet-lookup nil
@@ -45,11 +40,6 @@
 (setq cheatsheet-lookup-data-dir
       (when load-file-name
         (expand-file-name "data" (file-name-directory load-file-name))))
-
-;; (defcustom cheatsheet-lookup-data-dir cheatsheet-lookup-data--dir
-;;   "Location of lookup data file."
-;;   :group 'cheatsheet-lookup
-;;   :type 'file)
 
 (defcustom cheatsheet-lookup-completing-read 'ido-completing-read
   "Completing read function."
@@ -113,7 +103,8 @@
 language/resource at 'http://cheat-sheets.org instead'."
   (interactive "P")
   (let* ((data (cheatsheet-lookup-load))
-         (subject (funcall cheatsheet-lookup-completing-read "Subject: " data))
+         (subject
+          (funcall cheatsheet-lookup-completing-read "Cheatsheet subject: " data))
          (subdat (assoc subject data)))
     (if (assoc "id" subdat)
         (cheatsheet-lookup-cheatsheets-org subdat arg)
