@@ -1,30 +1,29 @@
-emacs ?= emacs
-wget ?= wget
-python ?= python
-ruby ?= ruby
+EMACS ?= emacs
+PYTHON ?= python
+RUBY ?= ruby
 
-datadir= ../data
+DATADIR = ../data
 
 ifeq ($(OS), Windows_NT)
-  python="C:/Program Files/Anaconda/python.exe"
+  PYTHON = "C:/Program Files/Anaconda/python.exe"
 endif
 
-json= cheatsheets_org.json awesome.json
-dat= $(json:.json=.dat)
+JSON = cheatsheets_org.json awesome.json
+DAT  = $(JSON:.json=.dat)
 
 .PHONY: clean
 all: data
 
-data: $(datadir)/$(dat)
+data: $(DATADIR)/$(DAT)
 %.dat: %.json
-	$(emacs) -batch -l build.el -f batch-convert $<
-	cp $@ $(datadir)
+	$(EMACS) -Q --batch -l build.el -f batch-convert $<
+	cp $@ $(DATADIR)
 
 cheatsheets_org.json:
-	$(python) cheatsheets_org.py -o cheatsheets_org.json
+	$(PYTHON) cheatsheets_org.py -o cheatsheets_org.json
 
 awesome.json:
-	$(ruby) awesome.rb
+	$(RUBY) awesome.rb
 
 clean:
 	$(RM) $(json) $(dat) *~ *.pyc
