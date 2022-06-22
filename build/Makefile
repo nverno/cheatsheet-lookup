@@ -1,29 +1,32 @@
-EMACS ?= emacs
-PYTHON ?= python
-RUBY ?= ruby
+EMACS  ?= $(shell command -v emacs)
+PYTHON ?= $(shell command -v python)
+RUBY   ?= $(shell command -v ruby)
 
-DATADIR = ../data
-
-ifeq ($(OS), Windows_NT)
-  PYTHON = "C:/Program Files/Anaconda/python.exe"
-endif
-
-JSON = cheatsheets_org.json awesome.json
-DAT  = $(JSON:.json=.dat)
+DATADIR =  ../data
+JSON    := $(shell jq -r 'keys[]' sources.json)
+DAT     =  $(JSON:%.json=%.dat)
+DATA    =  $(addprefix $(DATADIR)/,$(DAT))
 
 .PHONY: clean
-all: data
+all: install $(DATA)
+	@
 
-data: $(DATADIR)/$(DAT)
+install:
+	pip install -r requirements.txt
+
+$(DATADIR)/%.dat: ./%.dat
+	mv $^ $@
+
 %.dat: %.json
 	$(EMACS) -Q --batch -l build.el -f batch-convert $<
-	cp $@ $(DATADIR)
 
-cheatsheets_org.json:
-	$(PYTHON) cheatsheets_org.py -o cheatsheets_org.json
+.INTERMEDIATE: $(JSON)
+$(JSON):
+	$(RUBY) sources.rb
+# $(PYTHON) cheatsheets-org.py -o cheatsheets-org.json
 
-awesome.json:
-	$(RUBY) awesome.rb
+# awesome.json:
+# 	$(RUBY) awesome.rb
 
 clean:
-	$(RM) $(json) $(dat) *~ *.pyc
+	$(RM) $(json) $(dat) *~ *.pyc *.dat $(JSON)

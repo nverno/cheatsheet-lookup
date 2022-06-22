@@ -1,5 +1,5 @@
 {
-  "cheat-sheets.org": {
+  "cheatsheets-org.json": {
     "source": "http://cheat-sheets.org",
     "indexer": {
       "language": "python",
@@ -7,8 +7,8 @@
       "options": []
     }
   },
-  "awesome-cheatsheet": {
-    "source": "https://github.com/detailyang/awesome-cheatsheet",
+  "awesome.json": {
+    "source": "https://raw.githubusercontent.com/detailyang/awesome-cheatsheet/master/README.md",
     "indexer": {
       "language": "ruby",
       "program": "awesome.rb",

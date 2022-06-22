@@ -1,11 +1,10 @@
 (require 'json)
 
-;; convert json output to an elisp data structure
-;; @@FIXME: still not sure best way to store, currently as an alist
+;; convert json output to an elisp data structure (alist)
 
-(defvar python (if (eq system-type 'windows-nt)
+(defvar python-exe (if (eq system-type 'windows-nt)
                    "C:/Program Files/Anaconda/python.exe"
-                 "python"))
+                 "python-exe"))
 
 (defun batch-convert ()
   (defvar command-line-args-left)
@@ -44,9 +43,8 @@
 (defun scrape-data ()
   (let ((proc
          (start-process "cheatsheet" "*cheatsheet output*"
-                        python
+                        python-exe
                         "cheatsheet-lookup.py")))
     (set-process-sentinel proc
                           #'(lambda (p s)
-                              (message "%s : %s" p s)
-                              (build-el)))))
+                              (message "%s : %s" (process-name p) s)))))

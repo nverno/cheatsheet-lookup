@@ -63,19 +63,23 @@ class IndexProcessor:
                                 'types': types
                             }
                 except:
-                    print "Failed for %s" % name
+                    print("Failed for %s" % name)
 
-# ip = IndexProcessor("http://www.cheat-sheets.org/")
 
 if __name__ == '__main__':
-    import optparse
-    parser = optparse.OptionParser(__doc__.strip())
-    parser.add_option("-o", "--output",
-                      help="Output file", default="cheat-sheet-org.json",
-                      dest="outfile")
-    (opts, args) = parser.parse_args()
+    # import optparse
+    # parser = optparse.OptionParser(__doc__.strip())
+    # parser.add_option("-o", "--output",
+    #                   help="Output file", default="cheatsheets-org.json",
+    #                   dest="outfile")
+    # (opts, args) = parser.parse_args()
 
+    if len(sys.argv) < 3:
+        print(f"usage: {sys.argv[0]} <output file> <input uri>")
+        sys.exit(1)
+
+    # ip = IndexProcessor("http://www.cheat-sheets.org/")
+    ip = IndexProcessor(sys.argv[2])
     import json
-    ip = IndexProcessor("http://www.cheat-sheets.org/")
-    with open(opts.outfile, "w") as f:
+    with open(sys.argv[1], "w") as f:
         json.dump(ip.sheets, f)

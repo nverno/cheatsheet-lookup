@@ -1,4 +1,6 @@
-(("cheatsheets"
+(("systems programming cheat sheet"
+  ("Systems Programming Cheat Sheet" . "https://github.com/jstrieb/systems-programming-cheat-sheet"))
+ ("cheatsheets"
   ("cheatsheets-ai" . "https://github.com/kailashahirwar/cheatsheets-ai"))
  ("api"
   ("api-cheat-sheet" . "https://github.com/RestCheatSheet/api-cheat-sheet"))
@@ -52,6 +54,8 @@
   ("rspec" . "https://gist.github.com/dnagir/663876"))
  ("octave"
   ("Octave-cheatsheet" . "http://ais.informatik.uni-freiburg.de/teaching/ss14/robotics/etc/cheatsheet.pdf"))
+ ("mobaxterm"
+  ("Mobaxterm" . "https://drive.google.com/file/d/0B86nuTd5nMTKRWxrdE44cEZodHc/view"))
  ("matlab"
   ("matlab-cheatsheet" . "http://web.mit.edu/18.06/www/Spring09/matlab-cheatsheet.pdf"))
  ("mac"
@@ -76,6 +80,10 @@
   ("curl" . "https://github.com/bagder/curl-cheat-sheet"))
  ("awk"
   ("awk-nawk-and-gawk-cheat-sheet" . "http://www.catonmat.net/blog/awk-nawk-and-gawk-cheat-sheet/"))
+ ("vscode"
+  ("VsCode" . "https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf"))
+ ("notepad++"
+  ("Notepad++" . "https://drive.google.com/file/d/1r4rPmYQ-dMz_9UNUKKH9F6KyWDLSlwke"))
  ("phpstorm "
   ("PHPStorm - Mac/Win" . "https://resources.jetbrains.com/storage/products/phpstorm/docs/PhpStorm_ReferenceCard.pdf"))
  ("sublime text 3"
@@ -98,6 +106,10 @@
   ("a_vi_vim_graphical_cheat_sheet_tutorial" . "http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html")
   ("Vim Quick Reference Card" . "https://michaelgoerz.net/refcards/vimqrc.pdf")
   ("A really easy to read and comprehensive guide on vim." . "https://vim.rtorr.com/"))
+ ("operating"
+  ("Operating-System-Notes" . "https://www.geeksforgeeks.org/last-minute-notes-operating-systems/"))
+ ("computer"
+  ("Computer-Networks-Last-Minute-Notes" . "https://www.geeksforgeeks.org/last-minute-notes-computer-network/"))
  ("rest"
   ("rest-foundations-restful" . "https://dzone.com/refcardz/rest-foundations-restful"))
  ("regular"
@@ -139,14 +151,14 @@
   ("ror" . "http://www.cheatography.com/davechild/cheat-sheets/ruby-on-rails/"))
  ("laravel"
   ("laravel-cheatsheet" . "https://github.com/jesseobrien/laravel-cheatsheet"))
- ("flask"
-  ("flask" . "https://docs.google.com/file/d/1pnwfq8v5Ph4Xn8ttv9P_TLnrRbT9-S_v-KdZiEcx64vlGYkC0SoMfZOs0NYN/edit?usp=drive_web"))
  ("vue"
   ("vue-cheatsheet" . "https://vuejs-tips.github.io/cheatsheet/"))
  ("flexbox"
   ("flexbox-cheatsheet" . "http://vudav.github.io/flexbox-cheatsheet/"))
  ("jest"
   ("jest-cheat-sheet" . "https://github.com/sapegin/jest-cheat-sheet"))
+ ("bootstrap 5 cheatsheet"
+  ("Bootstrap 5 Cheatsheet" . "https://bootstrap-cheatsheet.themeselection.com/"))
  ("bootstrap 4"
   ("Bootstrap 4" . "https://hackerthemes.com/bootstrap-cheatsheet/"))
  ("page"
@@ -175,7 +187,7 @@
  ("sass/scss functions cheatsheet"
   ("sass/SCSS functions cheatsheet" . "https://gist.github.com/AllThingsSmitty/3bcc79da563df756be46"))
  ("css flex box"
-  ("CSS Flex Box" . "https://d13yacurqjgara.cloudfront.net/users/248947/screenshots/1742074/attachments/282954/flexboxsheet.pdf"))
+  ("CSS Flex Box" . "https://jonitrythall.com/images/flexboxsheet.pdf"))
  ("scss cheatsheet"
   ("SCSS cheatsheet" . "https://sass-cheatsheet.brunoscopelliti.com"))
  ("angularjs"

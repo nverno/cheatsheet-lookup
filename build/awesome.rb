@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require 'open-uri'
 require 'openssl'
 require 'json'
@@ -5,14 +8,14 @@ require 'json'
 module AwesomeCheatsheets
 
   URL_BASE = "https://raw.githubusercontent.com/detailyang/awesome-cheatsheet/master/README.md"
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+  OpenSSL::SSL::VERIFY_PEER ||= OpenSSL::SSL::VERIFY_NONE
 
   @@sheets = {}
 
   def self.parse_md(uri)
     section = nil
     indent = nil
-    open(uri) { |f|
+    URI.open(uri) { |f|
       f.each_line { |line|
         line.chomp!
         if /^(\s*)-\s*([[:alnum:] ]+$)/.match(line)
@@ -36,11 +39,16 @@ module AwesomeCheatsheets
     }
   end
 
-  def self.output_json(file)
-    parse_md URL_BASE
-    File.open(file, 'w') { |f| f.write(@@sheets.to_json) }
+  def self.output_json(out, infile = URL_BASE)
+    parse_md infile
+    File.open(out, 'w') { |f| f.write(@@sheets.to_json) }
   end
 
 end
 
-AwesomeCheatsheets.output_json("awesome.json")
+if __FILE__ == $PROGRAM_NAME
+  AwesomeCheatsheets.output_json(
+    ARGV[0] || "awesome.json",
+    ARGV[1] || AwesomeCheatsheets::URL_BASE
+  )
+end

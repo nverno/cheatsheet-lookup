@@ -1,11 +1,10 @@
 ;;; cheatsheet-lookup --- Emacs API to lookup cheatsheets from cheat-sheets.org -*- lexical-binding: t -*-
-
-;; Last modified: <2019-02-20 20:34:50>
+;;
 ;; Author: Noah Peart <noah.v.peart@gmail.com>
 ;; URL: https://github.com/nverno/cheatsheet-lookup
-;; Package-Requires: 
+;; Package-Requires:
 ;; Created: 20 August 2016
-
+;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;; This program is free software; you can redistribute it and/or
@@ -32,7 +31,7 @@
 ;;; Code:
 
 (defgroup cheatsheet-lookup nil
-  "Lookup cheatsheets from cheat-sheet.org"
+  "Lookup cheatsheets from cheat-sheet.org."
   :group 'convenience
   :prefix "cheatsheet-lookup-")
 
@@ -41,7 +40,7 @@
       (when load-file-name
         (expand-file-name "data" (file-name-directory load-file-name))))
 
-(defcustom cheatsheet-lookup-completing-read 'ido-completing-read
+(defcustom cheatsheet-lookup-completing-read 'completing-read
   "Completing read function."
   :group 'cheatsheet-lookup
   :type 'function)
@@ -51,6 +50,7 @@
 (defvar cheatsheet-lookup-cache nil)
 
 (defun cheatsheet-lookup-alist-to-hash (alist &optional options)
+  "Convert ALIST to hash. OPTIONS passed to hash."
   (let ((ht (apply 'make-hash-table options)))
     (mapc
      #'(lambda (item) (puthash (car item) (cdr item) ht)) alist)
@@ -58,6 +58,7 @@
     ht))
 
 (defun cheatsheet-lookup-load-hash (file)
+  "Load hash from FILE."
   (cheatsheet-lookup-alist-to-hash
    (with-temp-buffer
      (insert-file-contents file)
@@ -66,6 +67,7 @@
    '(:test equal :size 300)))
 
 (defun cheatsheet-lookup-load (&optional arg)
+  "Load cheatsheets. Optionally force load with ARG."
   (when (or arg (not cheatsheet-lookup-cache))
     (dolist (file (directory-files cheatsheet-lookup-data-dir t "^[^.]"))
       (with-temp-buffer
@@ -82,7 +84,8 @@
 
 ;; cheat-sheets.org
 (defun cheatsheet-lookup-cheatsheets-org (subdat &optional arg)
-  "Dispatch to lookup at cheat-sheets.org"
+  "Dispatch to lookup at cheat-sheets.org. SUBDAT denotes section.
+With ARG, goto section."
   (if (or arg current-prefix-arg)
       ;; Just go to section corresponding to chosen language
       (browse-url (concat "http://cheat-sheets.org/#" (cdr (assoc "id" subdat))))
@@ -96,11 +99,11 @@
                             "Location: " (append uris nil))))
           (browse-url uri))))))
 
-;;@@FIXME: need new data structure with action to take
 ;;;###autoload
 (defun cheatsheet-lookup (&optional arg)
-  "Lookup a cheatsheet. With ARG or prefix, jump to the location of a selected
-language/resource at 'http://cheat-sheets.org instead'."
+  "Lookup a cheatsheet.
+With ARG or prefix, jump to the location of a selected
+language/resource at http://cheat-sheets.org instead."
   (interactive "P")
   (let* ((data (cheatsheet-lookup-load))
          (subject
@@ -110,8 +113,10 @@ language/resource at 'http://cheat-sheets.org instead'."
         (cheatsheet-lookup-cheatsheets-org subdat arg)
       (if (= 1 (length (cdr subdat)))
           (browse-url (cl-cdadr subdat))
-        (browse-url (funcall cheatsheet-lookup-completing-read
-                             "Cheatsheet: " (cdr subdat)))))))
+        (browse-url
+         (let ((key (funcall cheatsheet-lookup-completing-read
+                             "Cheatsheet: " (cdr subdat))))
+           (cdr (assoc key (cdr subdat)))))))))
 
 (provide 'cheatsheet-lookup)
 
